@@ -10,8 +10,10 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Permitir que tu frontend (HTML) se comunique con este backend
 app.use(cors({
-  origin: ['http://localhost:5500', 'https://neon-haupia-d38686.netlify.app/'],
-  credentials: true
+  origin: ['http://localhost:5500', 'https://neon-haupia-d38686.netlify.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Ruta para guardar datos de prueba (simula una base de datos)
